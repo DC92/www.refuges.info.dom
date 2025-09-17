@@ -127,34 +127,37 @@ function inv($couleur) {
   font-size: 70%;
 }
 
-/* Zones masquées */
+#phpbb .panel,
 #phpbb .wrap,
 #phpbb .headerbar,
 #phpbb .navbar .avatar,
-/* Personnalisation des couleurs */
 #phpbb .navbar,
-#phpbb .basdepage {
+#phpbb .basdepage,
+#phpbb .bg1,
+#phpbb .bg2,
+#phpbb .bg3,
+#phpbb .forabg .forums,
+#phpbb .forumbg .topics>li {
   background-color: var(--couleur_fond);
+  background-image: none;
 }
 
+#phpbb .headerbar,
 #phpbb .forumbg,
 #phpbb .forabg,
-#phpbb .headerbar,
+#phpbb .topiclist li,
 #phpbb h3 {
+  color: var(--couleur_texte);
   background-color: var(--couleur_fond_titre);
   background-image: none;
 }
 
-#phpbb a {
+#phpbb a:not(.button) {
   color: var(--couleur_lien);
 }
 
 #phpbb li.row {
   border-bottom-color: var(--couleur_lien);
-}
-
-#phpbb span[style="color: #000000;"] {
-  color: grey !important;
 }
 
 #phpbb .panel h3,
@@ -165,6 +168,7 @@ function inv($couleur) {
 #phpbb .headerspace h3 a,
 #phpbb .postbody h3,
 #phpbb .postbody h3 a,
+#phpbb input[type="submit"],
 #phpbb #postform .review,
 #phpbb #postform .review a {
   color: var(--couleur_titre);
@@ -176,8 +180,11 @@ function inv($couleur) {
 #phpbb blockquote,
 #phpbb .postprofile dd strong,
 #phpbb .author,
-#phpbb .content {
-  color: var(--couleur_texte);
+#phpbb .content,
+#phpbb .postbody,
+#phpbb .postprofile,
+#phpbb span[style="color: #000000;"] {
+  color: var(--couleur_texte) !important;
 }
 
 #phpbb blockquote {
@@ -186,15 +193,6 @@ function inv($couleur) {
 
 #phpbb .stat-block strong a {
   color: #a00;
-}
-
-#phpbb .bg1,
-#phpbb .bg2,
-#phpbb .bg3,
-#phpbb .forabg .forums,
-#phpbb .forumbg .topics>li {
-  background-color: var(--couleur_fond);
-  background-image: none;
 }
 
 #phpbb dl a.row-item-link:hover {
@@ -233,7 +231,7 @@ body {
   width: 100%;
   height: 100%;
   color: var(--couleur_texte);
-  background-color: var(--couleur_fond) !important;
+  background-color: var(--couleur_fond);
 }
 
 /* Sauf les cartes */
@@ -326,7 +324,7 @@ h3 {
   margin: 0em;
   text-align: center;
   margin-bottom: 3px;
-  color: var(--couleur_titre);
+  color: var(--couleur_texte);
   background-color: var(--couleur_fond_titre);
 }
 
@@ -767,6 +765,7 @@ body:not(#phpbb) a:visited {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    color: var(--couleur_texte);
     background: var(--couleur_fond_titre);
   }
 
@@ -973,6 +972,7 @@ form {
   margin-inline-end: 0;
 }
 
+.traces,
 .point_forum em {
   color: var(--couleur_texte) !important;
 }
@@ -991,6 +991,7 @@ form {
 
 /* Carte de l'accueil */
 #carte-accueil {
+  margin-top: 5px;
   width: 750px;
   height: 600px;
 }
@@ -1185,7 +1186,6 @@ form {
 .ligne_pointillee {
   border-bottom: 1px dotted;
 }
-
 
 .autocomplete {
   /* the container must be positioned relative */
