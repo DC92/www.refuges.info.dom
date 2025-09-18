@@ -77,6 +77,7 @@ function inv($couleur) {
   --couleur_titre: white;
   --couleur_lien: #<?=$couleur_lien?>;
   --couleur_fond_titre: #<?=$couleur_lien?>;
+  --couleur_fond_amplifiee: #CEF99C;
   --couleur_fond: #<?=$couleur_fond?>;
   --couleur_decoration_titres: #<?=$couleur_decoration_titres?>;
   --couleur_legende: #<?=$couleur_legende?>;
@@ -90,6 +91,7 @@ function inv($couleur) {
     --couleur_titre: black;
     --couleur_lien: #<?=$couleur_lien_clair?>;
     --couleur_fond: #100800;
+    --couleur_fond_amplifiee: #333;
     --couleur_decoration_titres: #<?=inv($couleur_decoration_titres)?>;
     --couleur_legende: #<?=inv($couleur_legende)?>;
 
@@ -113,6 +115,9 @@ function inv($couleur) {
 /*==================================================================*/
 /* Modifications de refuges.info                                    */
 /*==================================================================*/
+/* Préfixer les déclarations avec #phpbb leur donne la priorité
+   car les déclarions sur un #id ont priorité sur .class */
+
 /* Pas de ligne vide en haut */
 #phpbb {
   padding: 0;
@@ -123,67 +128,72 @@ function inv($couleur) {
   max-width: 100%;
 }
 
-#phpbb .wri-link {
-  font-size: 70%;
-}
-
-#phpbb .panel,
-#phpbb .wrap,
-#phpbb .headerbar,
-#phpbb .navbar .avatar,
-#phpbb .navbar,
+/* Couleur de fond */
 #phpbb .basdepage,
 #phpbb .bg1,
 #phpbb .bg2,
 #phpbb .bg3,
 #phpbb .forabg .forums,
-#phpbb .forumbg .topics>li {
+#phpbb .forumbg .topics>li,
+#phpbb .headerbar,
+#phpbb .navbar ,
+#phpbb .navbar .avatar,
+#phpbb .panel,
+#phpbb .wrap {
   background-color: var(--couleur_fond);
   background-image: none;
 }
 
-#phpbb .headerbar,
-#phpbb .forumbg,
+/* Couleurs grands titres */
 #phpbb .forabg,
-#phpbb .topiclist li,
-#phpbb h3 {
+#phpbb .forumbg,
+#phpbb h3,
+#phpbb .headerbar,
+#phpbb .site-description {
   color: var(--couleur_texte);
   background-color: var(--couleur_fond_titre);
   background-image: none;
 }
 
+/* Couleur des liens */
 #phpbb a:not(.button) {
   color: var(--couleur_lien);
 }
 
+/* Couleur des bordures */
 #phpbb li.row {
   border-bottom-color: var(--couleur_lien);
 }
 
-#phpbb .panel h3,
+/* Couleurs titres moins importants */
 #phpbb .alert_text h3,
-#phpbb .stat-block h3,
-#phpbb .stat-block h3 a,
 #phpbb .headerspace h3,
 #phpbb .headerspace h3 a,
+#phpbb input[type="submit"], 
+#phpbb .panel h3,
 #phpbb .postbody h3,
 #phpbb .postbody h3 a,
-#phpbb input[type="submit"],
 #phpbb #postform .review,
 #phpbb #postform .review a {
   color: var(--couleur_titre);
 }
 
-#phpbb .section-viewtopic .topic-title a:first-child,
-#phpbb .text-strong,
-#phpbb h2,
-#phpbb blockquote,
-#phpbb .postprofile dd strong,
+/* Couleur des textes */
+/* #phpbb, */
 #phpbb .author,
+#phpbb blockquote,
 #phpbb .content,
+#phpbb h2,
 #phpbb .postbody,
+#phpbb .postbody h3,
+#phpbb .postbody h3 a,
 #phpbb .postprofile,
-#phpbb span[style="color: #000000;"] {
+#phpbb .postprofile dd strong,
+#phpbb .section-viewtopic .topic-title a:first-child,
+#phpbb span[style="color: #000000;"],
+#phpbb .stat-block h3,
+#phpbb .stat-block h3 a,
+#phpbb .text-strong {
   color: var(--couleur_texte) !important;
 }
 
@@ -201,22 +211,29 @@ function inv($couleur) {
 
 /* Masquage lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
 #nav-footer li:last-child,
+
 /* Masquage login rapide en bas de page */
 #page-body>form>h3,
 .quick-login {
   display: none;
 }
+
 /* Masquage du lien "Nous Contacter" qui fait croire à un contact avec les refuges */
 ul#nav-main > li > a[href*="contactadmin"] {
   display: none;
 }
 
+/* Style de l'extension couplage */
 .section-posting #attach-panel-multi::after {
   content: "Attendre la fin du chargement des fichiers pour enregistrer le sujet.";
   background: yellow;
 }
 
-.text-strong {
+#phpbb .wri-link {
+  font-size: 70%;
+}
+
+#phpbb .text-strong {
   color: initial;
 }
 
@@ -252,7 +269,11 @@ table, tr, td, th {
 }
 
 .couleur_fond_amplifiee {
-  background-color: #cef99c;
+  background-color: var(--couleur_fond_amplifiee);
+}
+
+.photos div {
+  color: white;
 }
 
 textarea {
