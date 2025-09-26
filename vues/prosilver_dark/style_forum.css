@@ -13,8 +13,8 @@
   max-width: 100%;
 }
 
-#phpbb .section-viewtopic .topic-title a:first-child,
-#phpbb li.row:hover {
+#phpbb li.row:hover,
+#phpbb .section-viewtopic .topic-title a:first-child {
   color: black !important;
 }
 
@@ -31,8 +31,8 @@
 }
 
 #phpbb input,
-select,
-textarea {
+#phpbb select,
+#phpbb textarea {
   background-color: var(--couleur_titre);
 }
 
@@ -41,8 +41,12 @@ textarea {
   text-decoration: none;
 }
 
-#phpbb span[style="color: #000000;"], /* Couleur des anonymous */
 #phpbb h3 a,
-#phpbb p {
+#phpbb p,
+#phpbb span[style="color: #000000;"] { /* Couleur des anonymous */
   color: white !important;
+}
+
+#phpbb .nav-footer li:last-child {
+  display: none;
 }

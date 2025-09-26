@@ -35,6 +35,9 @@ a.gensmall,
   text-decoration: none;
 }
 
+/* Zones masquées */
+#phpbb .headerbar,
+#phpbb .navbar .avatar,
 /* Personnalisation des couleurs */
 #phpbb .navbar,
 #phpbb .navbar .avatar {
@@ -42,8 +45,9 @@ a.gensmall,
 }
 
 #phpbb .headerbar,
-#phpbb .forumbg,
-#phpbb .forabg,
+.forumbg,
+#phpbb .headerbar,
+.forabg,
 #phpbb h3 {
   background-color: var(--couleur_fond_titre);
   background-image: none;

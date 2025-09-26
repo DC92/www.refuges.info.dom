@@ -597,7 +597,7 @@ body:not(#phpbb) a:visited {
 
 /* On enlève les icones pour les fenêtres moyenes */
 @media screen and (min-width: 450px) and (max-width: 650px) {
-  .menu-bouton span:first-child {
+  .menu-bouton span:not(.bouton-style):first-child {
     display: none;
   }
 }
@@ -620,7 +620,7 @@ body:not(#phpbb) a:visited {
     line-height: 1.5em;
   }
 
-  .menu-bouton span:first-child {
+  .menu-bouton span:not(.bouton-style):first-child {
     display: none;
   }
 }
