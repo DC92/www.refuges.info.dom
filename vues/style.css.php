@@ -76,6 +76,8 @@ function inv($couleur) {
   --couleur_titre: white;
   --couleur_lien: #<?=$couleur_lien?>;
   --couleur_fond: #<?=$couleur_fond?>;
+  --couleur_fond_clair: #<?=$couleur_fond?>;
+  --couleur_fond_sombre: #161210;
   --couleur_fond_titre: #<?=$couleur_lien?>;
   --couleur_fond_amplifiee: #CEF99C;
   --couleur_decoration_titres: #<?=$couleur_decoration_titres?>;
@@ -89,7 +91,7 @@ function inv($couleur) {
   --couleur_texte: white;
   --couleur_titre: black;
   --couleur_lien: #<?=$couleur_lien_clair?>;
-  --couleur_fond: #161210;
+  --couleur_fond: var(--couleur_fond_sombre);
   --couleur_fond_amplifiee: #333;
   --couleur_legende: #<?=inv($couleur_legende)?>;
 }
@@ -440,6 +442,16 @@ body:not(#phpbb) a:visited {
 
 .menu-haut form li {
   margin: 5px 2px 10px 2px;
+}
+
+.choix_style_clair,
+.choix_style_clair:hover {
+  background: var(--couleur_fond_clair);
+}
+
+.choix_style_sombre,
+.choix_style_sombre:hover {
+  background: var(--couleur_fond_sombre);
 }
 
 /* Fenêtres larges */
