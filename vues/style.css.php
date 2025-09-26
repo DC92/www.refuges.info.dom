@@ -83,15 +83,14 @@ function inv($couleur) {
   --image_bandeau: url(../images/bandeau-haut/titrehorizontal_<?=date('m')?>.png);
 }
 
-/* Surcharge de toutes les pages pour les modes sombres */
+/* Surcharge pour les pages du site en mode sombre */
 #prosilver_dark,
 #ultra_light {
   --couleur_texte: white;
   --couleur_titre: black;
   --couleur_lien: #<?=$couleur_lien_clair?>;
-  --couleur_fond: #100800;
+  --couleur_fond: #161210;
   --couleur_fond_amplifiee: #333;
-  --couleur_decoration_titres: #<?=inv($couleur_decoration_titres)?>;
   --couleur_legende: #<?=inv($couleur_legende)?>;
 }
 
@@ -120,13 +119,13 @@ body {
 }
 
 /* zone de contenu */
-.bandeau-haut,
 .contenu {
   margin: 0.5%;
   margin-top: 3px;
   color: var(--couleur_texte);
 }
 
+.bandeau-haut,
 table, tr, td, th {
   border-color: var(--couleur_texte) !important;
 }
@@ -135,14 +134,13 @@ table, tr, td, th {
   background-color: var(--couleur_fond_amplifiee);
 }
 
-/* DCMM ???? uniquement sombre ?
+input,
+select,
 textarea {
-  margin-left: 1px;
-  border: thin solid red;
-  border-radius: 5px;
-  background-color: var(--couleur_fond);
+  margin: 2px 0;
+  background-color: var(--couleur_titre);
   color: var(--couleur_texte);
-} */
+}
 
 /*=====TEXTE=======*/
 strong {
@@ -534,7 +532,7 @@ body:not(#phpbb) a:visited {
 
   .menu-touch,
   .menu-hover {
-    border-color: var(--couleur_decoration_titres)  !important;
+    border-color: var(--couleur_decoration_titres) !important;
   }
 
   /* Blocs rétractables en dessous des boutons */
