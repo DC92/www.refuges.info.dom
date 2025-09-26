@@ -83,9 +83,9 @@ function inv($couleur) {
   --image_bandeau: url(../images/bandeau-haut/titrehorizontal_<?=date('m')?>.png);
 }
 
-/* Surcharge pour les pages du site en mode sombre */
-#prosilver_dark,
-#ultra_light {
+/* Surcharge pour les pages du site en style sombre */
+.prosilver_dark,
+.ultra_light {
   --couleur_texte: white;
   --couleur_titre: black;
   --couleur_lien: #<?=$couleur_lien_clair?>;
@@ -413,22 +413,10 @@ en gros je veux tout de la même couleur
 */
 
 body:not(#phpbb) a,
-a.mainmenu,
-a.nav,
-a.forumlink,
-a.cattitle,
-a.topictitle,
-a.postlink,
-a.gen,
-a.genmed,
-a.gensmall {
+body:not(#phpbb) a:visited {
   color: var(--couleur_lien);
   /* en accord avec le thème du forum, et moins agressif */
   text-decoration: none;
-}
-
-body:not(#phpbb) a:visited {
-  color: var(--couleur_lien);
 }
 
 /*========= Erreurs ==========*/

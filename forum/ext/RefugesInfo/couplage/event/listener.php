@@ -73,6 +73,7 @@ class listener implements EventSubscriberInterface
 
 		// Calcule la date du fichier style pour la mettre en paramètre pour pouvoir l'uploader quand il évolue
 		$template->assign_vars([
+			'BODY_CLASS' => $user->style['style_path'],
 			'STYLE_CSS' => fichier_vue('style.css.php', 'chemin_vues', true),
 			'STYLE_FORUM_CSS' => fichier_vue('style_forum.css', 'chemin_vues', true),
 		]);
