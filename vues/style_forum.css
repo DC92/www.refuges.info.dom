@@ -18,10 +18,6 @@
   color: black !important;
 }
 
-#phpbb .wri-link {
-  font-size: 70%;
-}
-
 /* J'intègre également les class des liens du forum
 en gros je veux tout de la même couleur */
 a.mainmenu,

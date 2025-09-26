@@ -852,6 +852,11 @@ form {
   margin-inline-end: 0;
 }
 
+/* Lien pour retourner à la fiche depuis le forum */
+.wri-link {
+  font-size: 70%;
+}
+
 .traces,
 .point_forum em {
   color: var(--couleur_texte) !important;

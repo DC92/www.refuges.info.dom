@@ -1,7 +1,6 @@
-/*=================================================*/
-/* Modification du style du forum PhpBB3-prosilver */
-/* Initialement dans style.css.php                 */
-/*=================================================*/
+/*======================================================*/
+/* Modification du style du forum PhpBB3-prosilver_dark */
+/*======================================================*/
 
 /* Pas de ligne vide en haut */
 #phpbb {
@@ -18,12 +17,14 @@
   color: black !important;
 }
 
-#phpbb .wri-link {
-  font-size: 70%;
+/* Couleur des anonymous */
+#phpbb span[style="color: #000000;"] {
+  color: var(--couleur_texte) !important;
 }
 
-/* J'intègre également les class des liens du forum
-en gros je veux tout de la même couleur */
+@media print {/****************** DCMM ********************/
+
+
 a.mainmenu,
 a.nav,
 a.forumlink,
@@ -106,3 +107,8 @@ ul#nav-main > li > a[href*="contactadmin"] {
 .text-strong {
   color: initial;
 }
+
+
+
+
+} /****************** DCMM ********************/

@@ -73,7 +73,6 @@ class listener implements EventSubscriberInterface
 			header('Location: https://'.$this->server['HTTP_HOST'].$request->variable('redirect', '/'));
 		}
 
-		// Calcule la date du fichier style pour la mettre en paramètre pour pouvoir l'uploader quand il évolue
 		$template->assign_vars([
 			'BODY_CLASS' => $user->style['style_path'],
 			'STYLE_CSS' => fichier_vue('style.css.php', 'chemin_vues', true),
@@ -113,9 +112,8 @@ class listener implements EventSubscriberInterface
 
 	// Modification du style à la volée
 	public function user_setup ($event) {
-		global $vue, $db;
+		global $db;
 
-		$vue->style_icon = '&#127774;';
 		if (isset ($this->cookies['style'])) {
 			$sql = 'SELECT style_id FROM '.STYLES_TABLE.' WHERE style_path = \''.$this->cookies['style'].'\'';
 			$result = $db->sql_query ($sql);
@@ -124,12 +122,6 @@ class listener implements EventSubscriberInterface
 
 			if ($row)
 				$event['style_id'] = $row['style_id'];
-
-			if ($this->cookies['style'] == 'prosilver_dark')
-				$vue->style_icon = '&#127772;';
-			if ($this->cookies['style'] == 'CleanSilver' ||
-				$this->cookies['style'] == 'ultra_light')
-				$vue->style_icon = '&#9416;';
 		}
 	}
 
