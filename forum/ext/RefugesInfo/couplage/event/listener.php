@@ -92,6 +92,7 @@ class listener implements EventSubscriberInterface
 			$vue->email_en_erreur=info_email_bounce ();
 		}
 
+		// Récupère le contenu des fichiers pour les affecter à des variables du template PhpBB
 		ob_start();
 		include(fichier_vue('_bandeau.html'));
 		$template->assign_var('BANDEAU', ob_get_clean());

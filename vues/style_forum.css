@@ -1,8 +1,7 @@
 /*=================================================*/
 /* Modification du style du forum PhpBB3-prosilver */
+/* Initialement dans style.css.php                 */
 /*=================================================*/
-/* Initialement dans style.css.php
-   destiné à être surchargé en cas de style différent de prosilver */
 
 /* Pas de ligne vide en haut */
 #phpbb {
@@ -14,16 +13,17 @@
   max-width: 100%;
 }
 
-/* Titre des forums de refuges */
+/* Titre des forums de refuges
 #phpbb .section-viewtopic .topic-title a:first-child {
   color: black !important;
-}
+} */
 
 #phpbb .wri-link {
   font-size: 70%;
 }
 
 /* Zones masquées */
+#phpbb .wrap,
 #phpbb .headerbar,
 #phpbb .navbar .avatar,
 /* Personnalisation des couleurs */
@@ -32,10 +32,9 @@
   background-color: var(--couleur_fond);
 }
 
+#phpbb .forumbg,
+#phpbb .forabg,
 #phpbb .headerbar,
-.forumbg,
-#phpbb .headerbar,
-.forabg,
 #phpbb h3 {
   background-color: var(--couleur_fond_titre);
   background-image: none;
@@ -47,7 +46,7 @@
 #phpbb .stat-block h3 a,
 #phpbb .headerspace h3,
 #phpbb .headerspace h3 a,
-#phpbb .postbody h3,
+#phpbb .postbody h3
 #phpbb .postbody h3 a,
 #phpbb #postform .review,
 #phpbb #postform .review a {

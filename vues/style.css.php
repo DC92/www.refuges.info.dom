@@ -42,7 +42,7 @@ switch ($periode)
   case "hiver":
     $couleur_fond="f2f2f2";
     $couleur_lien="006699";
-    $couleur_lien_clair="00aaff"; /* Pour mode sombre */
+    $couleur_lien_clair="00aaff"; /* Pour mode sombre, on reste en dominante verte */
     $couleur_decoration_titres="a6cee7";
     $couleur_legende="eef";
     break;
@@ -68,37 +68,37 @@ function inv($couleur) {
     $couleur[$i] = $hex[15 - strpos ($hex, strtolower($couleur[$i]))];
   return $couleur;
 }
+?>
 
 /* DOM 09/2025 on passe des constantes PHP aux constantes CSS */
-if(1) { ?>
-  /* DCMM TODO si mode clair */
-  :root {
-    --couleur_texte: black;
-    --couleur_titre: white;
-    --couleur_lien: #<?=$couleur_lien?>;
-    --couleur_fond_titre: #<?=$couleur_lien?>;
-    --couleur_fond_amplifiee: #CEF99C;
-    --couleur_fond: #<?=$couleur_fond?>;
-    --couleur_decoration_titres: #<?=$couleur_decoration_titres?>;
-    --couleur_legende: #<?=$couleur_legende?>;
-    --image_bandeau: url(../images/bandeau-haut/titrehorizontal_<?=date('m')?>.png);
-  }
+:root {
+  --couleur_texte: black;
+  --couleur_titre: white;
+  --couleur_lien: #<?=$couleur_lien?>;
+  --couleur_fond: #<?=$couleur_fond?>;
+  --couleur_fond_titre: #<?=$couleur_lien?>;
+  --couleur_fond_amplifiee: #CEF99C;
+  --couleur_decoration_titres: #<?=$couleur_decoration_titres?>;
+  --couleur_legende: #<?=$couleur_legende?>;
+  --image_bandeau: url(../images/bandeau-haut/titrehorizontal_<?=date('m')?>.png);
+}
 
-<?php } else { ?>
-  /* Mode sombre */
-  :root {
-    --couleur_texte: white;
-    --couleur_titre: black;
-    --couleur_lien: #<?=$couleur_lien_clair?>; /* DCMM ??? inv($couleur_lien) */
-    --couleur_fond: #100800;
-    --couleur_fond_amplifiee: #333;
-    --couleur_decoration_titres: #<?=inv($couleur_decoration_titres)?>;
-    --couleur_legende: #<?=inv($couleur_legende)?>;
-  }
-<?php } ?>
+/* Surcharge de toutes les pages pour les modes sombres */
+#prosilver_dark,
+#ultra_light {
+  --couleur_texte: white;
+  --couleur_titre: black;
+  --couleur_lien: #<?=$couleur_lien_clair?>;
+  --couleur_fond: #100800;
+  --couleur_fond_amplifiee: #333;
+  --couleur_decoration_titres: #<?=inv($couleur_decoration_titres)?>;
+  --couleur_legende: #<?=inv($couleur_legende)?>;
+}
 
 /*==================================================================*/
 /* Le style du forum est dans style_forum.css                       */
+/* Il n'est chargé que pour les pages du forum                      */
+/* Il est surchargé pour chaque style de forum                      */
 /*==================================================================*/
 
 /*==================================================================*/
