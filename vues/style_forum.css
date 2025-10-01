@@ -1,8 +1,10 @@
-/*=================================================*/
-/* Modification du style du forum PhpBB3-prosilver */
-/* Initialement dans style.css.php                 */
-/*=================================================*/
+/*====================================================*/
+/* Modification du style du forum PhpBB3-prosilver_fr */
+/* Initialement dans style.css.php                    */
+/*====================================================*/
 /* #phpbb permet de prioriser par rapport au style de base */
+
+@media print { /* DCMM TODO  */
 
 /* Pas de ligne vide en haut */
 #phpbb {
@@ -101,3 +103,5 @@ a.gensmall {
   color: var(--couleur_lien);
   text-decoration: none;
 }
+
+}/************************ DCMM TODO ******************/

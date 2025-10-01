@@ -160,10 +160,7 @@
 		</div>
 
 		<div class="menu-titre">
-			<span>Forum de </span>
-			<a href="<?=$config_wri['sous_dossier_installation']?>" title="Revenir à l'accueil">
-				Refuges.info
-			</a>
+			<span>Forum de </span>Refuges.info
 		</div>
 
 		<div class="menu-liste menu-bouton">
@@ -193,47 +190,6 @@
 						<span>💬</span><span>Forum</span>
 					</a>
 					<p>Forum de discussion</p>
-				</li>
-				<li class="menu-bouton" style="order:5">
-					<span class="menu-large bouton-style"><?php
-					if (isset ($_COOKIE['style'])) {
-						if ($_COOKIE['style'] == 'CleanSilver' ||
-							$_COOKIE['style'] == 'ultra_light')
-							echo '&#9416;';
-						elseif ($_COOKIE['style'] == 'prosilver_dark')
-							echo '&#127772;';
-						else
-							echo '&#127774;';
-					}
-					?></span>
-					<ul>
-						<li>
-							<a href=""
-								title="Style standard" class="choix_style_clair"
-								onclick="document.cookie='style=prosilver;path=/'"
-								title="Style standard" class="choix_style_clair">
-								&#127774;Jour
-							</a>
-						</li><li>
-							<a href=""
-								title="Style sombre" class="choix_style_sombre"
-								onclick="document.cookie='style=prosilver_dark;path=/'">
-								&#127772;Nuit
-							</a>
-						</li><li>
-							<a href=""
-								title="Style simplifié" class="choix_style_clair"
-								onclick="document.cookie='style=CleanSilver;path=/'">
-								&#9416;imple
-							</a>
-						</li><li>
-							<a href=""
-								title="Style simplifié sombre" class="choix_style_sombre"
-								onclick="document.cookie='style=ultra_light;path=/'">
-								&#9416;imple
-							</a>
-						</li>
-					</ul>
 				</li>
 				<li class="menu-bouton" style="order:0">
 					<span class="menu-large">☰</span><span class="menu-large"> Refuges.info</span>
