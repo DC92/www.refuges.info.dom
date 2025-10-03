@@ -4,22 +4,32 @@
 /*====================================================*/
 /* #phpbb permet de prioriser par rapport au style de base */
 
-@media print { /* DCMM TODO  */
-
-/* Pas de ligne vide en haut */
-#phpbb {
-  padding: 0;
-}
-
 /* Forum de la largeur de la page */
 #phpbb .wrap {
   max-width: 100%;
 }
 
 /* Titre des forums de refuges */
+/* Masquage lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
+#nav-footer li:last-child,
+/* Masquage login rapide en bas de page */
+www#page-body>form>h3,
+www.quick-login,
+/* Masquage de la banière */
+.headerbar,
+/* Masquage des switchs de style */
+.switch-theme, .style-switch,
+/* Masquage du lien "Nous Contacter" qui fait croire à un contact avec les refuges */
+ul#nav-main > li > a[href*="contactadmin"] {
+  display: none;
+}
+
+/* Titre des forums de refuges
 #phpbb .section-viewtopic .topic-title a:first-child {
   color: var(--couleur_texte) !important;
-}
+} */
+
+@media print { /* DCMM TODO  */
 
 /* Lien pour retourner à la fiche depuis le forum */
 .wri-link {
@@ -72,18 +82,6 @@
 
 #phpbb dl a.row-item-link:hover {
   background-color: transparent !important;
-}
-
-/* Masquage lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
-#nav-footer li:last-child,
-/* Masquage login rapide en bas de page */
-#page-body>form>h3,
-.quick-login {
-  display: none;
-}
-/* Masquage du lien "Nous Contacter" qui fait croire à un contact avec les refuges */
-ul#nav-main > li > a[href*="contactadmin"] {
-  display: none;
 }
 
 .section-posting #attach-panel-multi::after {
