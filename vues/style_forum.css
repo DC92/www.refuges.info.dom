@@ -9,6 +9,8 @@
   max-width: 100%;
 }
 
+@media print { /* DCMM TODO  */
+
 /* Titre des forums de refuges */
 /* Masquage lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
 #nav-footer li:last-child,
@@ -24,12 +26,10 @@ ul#nav-main > li > a[href*="contactadmin"] {
   display: none;
 }
 
-/* Titre des forums de refuges
+/* Titre des forums de refuges */
 #phpbb .section-viewtopic .topic-title a:first-child {
   color: var(--couleur_texte) !important;
-} */
-
-@media print { /* DCMM TODO  */
+}
 
 /* Lien pour retourner à la fiche depuis le forum */
 .wri-link {

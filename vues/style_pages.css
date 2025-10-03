@@ -9,10 +9,6 @@
   color: var(--couleur_texte);
 }
 
-.commentaire_metainfo {
-  color: black;
-}
-
 .couleur_fond_amplifiee {
   background-color: var(--couleur_fond_amplifiee);
 }
@@ -136,11 +132,12 @@ li {
   margin-bottom: 3px;
 }
 
-
 /*====== Formulaires======*/
 /*
   Utilisé pour le formulaire de création ou modification ainsi que l'ajout de commentaires.
-  J'aimerais pouvoir rendre un peu plus cohérent (factoriser) les style de la plupart des formulaires du site (zone modérateur, modif fiche, ajout commentaires)
+  J'aimerais pouvoir rendre un peu plus cohérent (factoriser)
+  les style de la plupart des formulaires du site
+  (zone modérateur, modif fiche, ajout commentaires)
   mais ça demande un peu de tests, je (sly 2024) le fais au fûr et à mesure.
 */
 
@@ -359,6 +356,7 @@ body:not(#phpbb) a:visited { /* //TODO DCMM */
   float: left;
   margin: -0.6em 1em 0em 1em;
   border: thin solid var(--couleur_texte);
+  color: black;
 }
 
 .spacer {
@@ -649,7 +647,7 @@ body:not(#phpbb) a:visited { /* //TODO DCMM */
   background-color: #e9e9e9;
 }
 .autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
+  /* when navigating through the items using the arrow keys */
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
