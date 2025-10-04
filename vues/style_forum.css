@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-/* Luens aux couleurs de refuges.info */
+/* Liens aux couleurs de refuges.info */
 a {
   color: var(--couleur_lien);
 }
@@ -44,10 +44,14 @@ span[style="color: #000000;"] {
 /* Bandeau de phpbb */
 #logo,
 .headerbar p,
+
+/* Coches de la page de connexion */
+dl:has(#autologin),
+
 /* lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
 li:has(.fa-envelope),
-/* Changeur de couleurs */
-.switch-theme,
+
+/* Changeur de couleurs de prosilver_fr */
 .dropdown-trigger {
   display: none;
 }

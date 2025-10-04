@@ -70,13 +70,22 @@ if ($date_maintenant > $debut_automne and $date_maintenant < $debut_hiver) {
 
 /* Surcharge pour les pages du site en style sombre */
 @media (prefers-color-scheme: dark) {
-  :root {
+  body:not(.light) {
     --couleur_texte: white;
     --couleur_titre: black;
     --couleur_lien: #<?=$couleur_lien_clair?>;
     --couleur_fond: #161210;
     --couleur_fond_amplifiee: #333;
   }
+}
+
+/* Surcharge quand le commutateur dark est activé dans prosilver_fr */
+body.dark {
+  --couleur_texte: white;
+  --couleur_titre: black;
+  --couleur_lien: #<?=$couleur_lien_clair?>;
+  --couleur_fond: #161210;
+  --couleur_fond_amplifiee: #333;
 }
 
 /*==================================================================*/
