@@ -80,17 +80,20 @@ if ($date_maintenant > $debut_automne and $date_maintenant < $debut_hiver) {
 }
 
 /*==================================================================*/
+/* Le style des pages est maintenant dans style_page.css            */
+/* Il n'est chargé que pour les pages hors forum                    */
+/*==================================================================*/
+
+/*==================================================================*/
 /* Le style du forum est maintenant dans style_forum.css            */
 /* Il n'est chargé que pour les pages du forum                      */
-/* Il est surchargé pour les styles de forum # de prosilver         */
+/* Il peut être surchargé pour des styles # de prosilver_fr         */
 /*==================================================================*/
 
 /*==================================================================*/
-/* Mise en page générales des types                                 */
+/* Mise en page générale                                            */
 /*==================================================================*/
-/*===== Général =======*/
-
-html {
+ html {
   width: 100%;
   height: 100%;
 }
@@ -111,6 +114,10 @@ body {
   font-size: 18px;
 }
 
+.bandeau-haut a {
+  color: var(--couleur_lien);
+}
+
 .menu-bouton * {
   font-family: Times New Roman;
 }
@@ -128,7 +135,7 @@ body {
 
   /* Le bandeau */
   .bandeau-haut {
-    background-image: url(../images/bandeau-haut/titrehorizontal_<?=date('m')?>.png);
+    background-image: var(--image_bandeau);
     background-repeat: no-repeat;
   }
 
@@ -395,9 +402,9 @@ body {
   }
 }
 
-/* ========== Menu du bas ========== */
-
-/* en bas, il y a un gros div "basdepage" qui englobe la fin */
+/*==================================================================*/
+/* Bas de page                                                      */
+/*==================================================================*/
 .basdepage {
   clear: both;
   padding-top: 15px;
