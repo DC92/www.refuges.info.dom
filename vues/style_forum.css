@@ -5,6 +5,7 @@
 /* Forum de la largeur de la page */
 .wrap {
   max-width: 100%;
+  padding: 0;
 }
 
 /* Luens aux couleurs de refuges.info */
@@ -22,9 +23,29 @@ span[style="color: #000000;"] {
   color: white !important;
 }
 
+/* Bandeau de phpbb */
+.headerbar h1,
+.headerbar .search-header {
+  margin: 0;
+}
+
+.headerbar h1,
+.headerbar,
+#phpbb .topiclist .header * {
+  background-color: var(--couleur_fond_titre);
+  color: var(--couleur_titre);
+}
+
+.topiclist li {
+	border: 0 solid transparent !important;
+}
+
 /* Masquages */
+/* Bandeau de phpbb */
+#logo,
+.headerbar p,
 /* lien vers la page contact qui fait doublon avec le bandeau WRI du bas */
-#nav-footer li:last-child,
+li:has(.fa-envelope),
 /* Changeur de couleurs */
 .switch-theme,
 .dropdown-trigger {

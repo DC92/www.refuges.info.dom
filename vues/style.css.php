@@ -177,7 +177,8 @@ body {
   }
 
   .menu-liste>span,
-  .menu-titre {
+  .menu-titre,
+  .menu-recherche {
     display: none;
   }
 
