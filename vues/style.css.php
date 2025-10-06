@@ -94,7 +94,8 @@ body.dark {
 /*==================================================================*/
 
 /*==================================================================*/
-/* Le style du forum est maintenant dans style_forum.css            */
+/* Le style du forum est maintenant dans                            */
+/* <IDENTIFIANT_DU_STYLE>/style_forum.css                           */
 /* Il n'est chargé que pour les pages du forum                      */
 /* Il peut être surchargé pour des styles # de prosilver_fr         */
 /*==================================================================*/
@@ -102,11 +103,7 @@ body.dark {
 /*==================================================================*/
 /* Mise en page générale                                            */
 /*==================================================================*/
- html {
-  width: 100%;
-  height: 100%;
-}
-
+html,
 body {
   margin: 0px;
   width: 100%;

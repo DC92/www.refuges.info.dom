@@ -1,0 +1,28 @@
+ {
+     "type": "Point",
+     "nom": <?=$point->nom?>,
+     "id_point":  <?=$point->id_point?>,
+     "id_point_type": <?=$point->id_point_type?>,
+     "places": <?=$point->places?>,
+     "remark": <?=$point->remark?>,
+     "acces": <?=$point->acces?>,
+     "proprio": <?=$point->proprio?>,
+     "latitude": <?=$point->latitude?>,
+     "longitude": <?=$point->longitude?>,
+     "altitude": <?=$point->altitude?>,
+     "properties": {
+<?php
+	foreach ($vue->commentaires AS $commentaire) {
+?>
+		"id_commentaire": <?=$commentaire->id_commentaire?>,
+		"texte_affichage": <?=$commentaire->texte_affichage?>,
+		"auteur_commentaire": <?=$commentaire->auteur_commentaire?>,
+		"id_createur_commentaire": <?=$commentaire->id_createur_commentaire?>,
+		"date_commentaire_format_francais": <?=$commentaire->date_commentaire_format_francais?>,
+	<?php if ($commentaire->photo_existe) { ?>
+		"lien_photo": <?=$commentaire->lien_photo['originale']?>,
+	<? } ?>
+  }, 
+<?php
+	}
+?>

@@ -23,6 +23,7 @@ class listener implements EventSubscriberInterface
 			'core.posting_modify_template_vars' => 'assign_template_vars_before',
 			'core.page_footer' => 'page_footer', // includes/functions.php 4308
 			'core.login_box_before' => 'login_box_before',
+			'core.user_setup' => 'user_setup',
 			'core.user_add_modify_data' => 'user_add_modify_data',
 			'core.user_add_modify_notifications_data' => 'user_add_modify_notifications_data',
 		];
@@ -70,6 +71,7 @@ class listener implements EventSubscriberInterface
 			$user->session_kill();
 			header('Location: https://'.$this->server['HTTP_HOST'].$request->variable('redirect', '/'));
 		}
+//*DCMM*/echo'<pre style="background-color:white;color:black;font-size:14px;">'.basename(__FILE__).' line '.__LINE__.': '.var_export(fichier_vue('style_forum.css', 'chemin_vues', true),true).'</pre>'.PHP_EOL;
 
 		$template->assign_vars([
 			'BODY_CLASS' => $user->style['style_path'],
@@ -106,6 +108,10 @@ class listener implements EventSubscriberInterface
 	public function login_box_before () {
 		if (!isset($this->server['HTTPS']))
 			header('Location: https://'.$this->server['HTTP_HOST'].$this->server['REQUEST_URI'], true, 301);
+	}
+
+	public function user_setup ($event) {
+		/* Reserved */
 	}
 
 	// Pour cocher par défaut l'option "m'avertir si une réponse" dans le cas d'un nouveau sujet ou d'une réponse
