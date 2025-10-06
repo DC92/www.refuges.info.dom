@@ -1,0 +1,41 @@
+<?php //TODO DOM Fonction à caser quelque part
+function json_develop ($obj, $args, $prefix = '  ') {
+	foreach (explode(' ', $args) AS $a)
+		if ($a && isset($obj->$a) && $obj->$a)
+			echo $prefix.'"'.$a.'": "'.$obj->$a.'",'.PHP_EOL;
+}
+
+?>
+{
+  "type": "Point",
+	<?json_develop ($point,
+		'nom id_point id_point_type '.
+		'latitude longitude altitude proprio acces remark '.
+		'places places_matelas cheminee poele couvertures latrines '.
+		'nom_createur id_createur date_creation site_officiel'
+	);?>
+  "properties": {
+<?php
+	if ($commentaire->photo_existe)
+		$commentaire->lien_photo =
+			$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].
+			$commentaire->lien_photo['originale'];
+
+	foreach ($vue->commentaires AS $commentaire) {
+	json_develop ($commentaire,
+		'id_commentaire texte_affichage lien_photo '.
+		'auteur_commentaire id_createur_commentaire '.
+		'date_commentaire_format_francais'
+	);
+?>
+	<?php
+		if ($commentaire->photo_existe) {
+	?>
+		"lien_photo": <?=$commentaire->lien_photo['originale']?>,
+	<?php
+		}
+	?>
+  },
+<?php
+	}
+?>

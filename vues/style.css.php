@@ -107,7 +107,6 @@ html,
 body {
   margin: 0px;
   width: 100%;
-  height: 100%;
   background-color: var(--couleur_fond);
   color: var(--couleur_texte);
 }
