@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+	<head>
+		<meta charset="utf-8" />
+	</head>
+
+	<body>
+		<form method="post" action="/forum/ucp.php?mode=login">
+			<input type="text" name="username"
+			placeholder="Nom d’utilisateur" autocomplete="username">
+
+			<input type="password" name="password"
+			placeholder="Mot de passe" autocomplete="password">
+
+			<input type="hidden" name="autologin" value="checked">
+			<input type="hidden" name="creation_time">
+			<input type="hidden" name="form_token">
+
+			<input type="submit" name="login">
+		</form>
+
+		<script>
+			const request = new XMLHttpRequest();
+
+			window.onload = () => {
+				request.open("GET", "/forum/ucp.php?mode=login&format=json", true);
+				request.onload = () => {
+/*DCMM*/console.log("/forum/ucp.php?mode=login&format=json");
+/*DCMM*/console.log(request.responseText);
+					const feilds = JSON.parse(request.responseText);
+
+					document.getElementsByName("creation_time")[0].value = feilds.creation_time;
+					document.getElementsByName("form_token")[0].value = feilds.form_token;
+				}
+				request.send();
+			};
+		</script>
+	</body>
+</html>

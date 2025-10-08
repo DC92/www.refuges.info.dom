@@ -11,35 +11,23 @@ function fichier_vue($nom_fichier_vue, $chemin = 'chemin_vues', $url = false)
 {
   global $config_wri, $user;
 
-  $repertoire_fichier_vue = $nom_fichier_vue;
+  $nom_fichier_vue_style = $nom_fichier_vue;
 
   /* Style suivant le style du forum */
-  if (file_exists($config_wri[$chemin].$user->style['style_path'].'/'.$repertoire_fichier_vue))
-    $repertoire_fichier_vue = $user->style['style_path'].'/'.$repertoire_fichier_vue;
+  if (file_exists($config_wri[$chemin].$user->style['style_path'].'/'.$nom_fichier_vue_style))
+    $nom_fichier_vue_style = $user->style['style_path'].'/'.$nom_fichier_vue_style;
 
-  /* Style par les paramètres url?style=nom_style */
-  if (isset ($_GET['style']) &&
-    file_exists($config_wri[$chemin].$_GET['style'].'/'.$repertoire_fichier_vue))
-    $repertoire_fichier_vue = $_GET['style'].'/'.$repertoire_fichier_vue;
-
-
-if(0){/////////////////////////TODO DCMM
-/*DCMM*/echo'<pre style="background-color:white;color:black;font-size:14px;">'.basename(__FILE__).' line '.__LINE__.': '.var_export([$repertoire_fichier_vue, $chemin, $url],true).'</pre>'.PHP_EOL;
-
-    if($url)
-/*DCMM*/echo'<pre style="background-color:white;color:black;font-size:14px;">'.basename(__FILE__).' line '.__LINE__.': '.var_export($config_wri['url_'.$chemin].$repertoire_fichier_vue.'?'
-        .filemtime($config_wri[$chemin].$repertoire_fichier_vue),true).'</pre>'.PHP_EOL;
-    else
-/*DCMM*/echo'<pre style="background-color:white;color:black;font-size:14px;">'.basename(__FILE__).' line '.__LINE__.': '.var_export($config_wri[$chemin].$repertoire_fichier_vue,true).'</pre>'.PHP_EOL;
-}/////////////////////////////////////////
-
+  /* Style par les paramètres url?format=nom_style */
+  if (isset ($_GET['format']) &&
+    file_exists($config_wri[$chemin].$_GET['format'].'/'.$nom_fichier_vue_style))
+    $nom_fichier_vue_style = $_GET['format'].'/'.$nom_fichier_vue_style;
 
   if($url)
     // Calcule la date du fichier pour la mettre en paramètre pour pouvoir l'uploader quand il évolue
-    return $config_wri['url_'.$chemin].$repertoire_fichier_vue.'?'
-       .filemtime($config_wri[$chemin].$repertoire_fichier_vue);
+    return $config_wri['url_'.$chemin].$nom_fichier_vue_style.'?'
+       .filemtime($config_wri[$chemin].$nom_fichier_vue_style);
   else
-    return $config_wri[$chemin].$repertoire_fichier_vue;
+    return $config_wri[$chemin].$nom_fichier_vue_style;
 }
 
 // Ajoute un lien css ou js à la page
