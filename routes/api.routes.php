@@ -27,8 +27,8 @@ switch ($cible) {
     case 'polygones':
         include($config_wri['chemin_controlleurs'].'api/polygones.php');
         break;
-    case 'login':
-        include($config_wri['chemin_controlleurs'].'api/login.php');
+    case 'user':
+        include($config_wri['chemin_controlleurs'].'api/user.php');
         break;
     case 'doc':
         // Des fichiers html ou css simples, pas besoin d'un controler pour faire "include"

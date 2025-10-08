@@ -15,6 +15,7 @@ class listener implements EventSubscriberInterface
 		global $request;
 
 		$this->server = $request->get_super_global(\phpbb\request\request_interface::SERVER);
+		$this->get = $request->get_super_global(\phpbb\request\request_interface::GET);
 	}
 
 	static public function getSubscribedEvents () {
@@ -24,6 +25,7 @@ class listener implements EventSubscriberInterface
 			'core.page_footer' => 'page_footer', // includes/functions.php 4308
 			'core.login_box_before' => 'login_box_before',
 			'core.user_setup' => 'user_setup',
+			'core.add_form_key' => 'add_form_key',
 			'core.user_add_modify_data' => 'user_add_modify_data',
 			'core.user_add_modify_notifications_data' => 'user_add_modify_notifications_data',
 		];
@@ -71,7 +73,6 @@ class listener implements EventSubscriberInterface
 			$user->session_kill();
 			header('Location: https://'.$this->server['HTTP_HOST'].$request->variable('redirect', '/'));
 		}
-//*DCMM*/echo'<pre style="background-color:white;color:black;font-size:14px;">'.basename(__FILE__).' line '.__LINE__.': '.var_export(fichier_vue('style_forum.css', 'chemin_vues', true),true).'</pre>'.PHP_EOL;
 
 		$template->assign_vars([
 			'BODY_CLASS' => $user->style['style_path'],
@@ -110,8 +111,32 @@ class listener implements EventSubscriberInterface
 			header('Location: https://'.$this->server['HTTP_HOST'].$this->server['REQUEST_URI'], true, 301);
 	}
 
+	//TODO DCMM enlever si déplacé dans l'API
+	public function add_form_key ($event) {
+		global $template;
+
+		$template->assign_vars([
+			'FORM_TOKEN' => $event['token'],
+			'CREATION_TIME' => $event['now'],
+		]);
+	}
+
+
+	//TODO DCMM enlever si déplacé dans l'API
 	public function user_setup ($event) {
 		/* Reserved */
+
+		global $vue, $db;
+
+		/* Commutateur de style suivant argument */
+		if (isset ($this->get['format'])) {
+			$sql = 'SELECT style_id FROM '.STYLES_TABLE.' WHERE style_path = \''.$this->get['format'].'\'';
+			$result = $db->sql_query ($sql);
+			$row = $db->sql_fetchrow ($result);
+			$db->sql_freeresult($result);
+			if ($row)
+				$event['style_id'] = $row['style_id'];
+		}
 	}
 
 	// Pour cocher par défaut l'option "m'avertir si une réponse" dans le cas d'un nouveau sujet ou d'une réponse
