@@ -5,7 +5,7 @@
 	</head>
 
 	<body>
-		<form method="post" action="/forum/ucp.php?mode=login">
+		<form method="post" id="login_form">
 			<input type="text" name="username"
 			placeholder="Nom d’utilisateur" autocomplete="username">
 
@@ -23,14 +23,13 @@
 			const request = new XMLHttpRequest();
 
 			window.onload = () => {
-				request.open("GET", "/forum/ucp.php?mode=login&format=json", true);
+				request.open("GET", "api/user?format=json", true);
 				request.onload = () => {
-/*DCMM*/console.log("/forum/ucp.php?mode=login&format=json");
-/*DCMM*/console.log(request.responseText);
-					const feilds = JSON.parse(request.responseText);
+					const user_data = JSON.parse(request.responseText);
 
-					document.getElementsByName("creation_time")[0].value = feilds.creation_time;
-					document.getElementsByName("form_token")[0].value = feilds.form_token;
+					document.getElementById("login_form").action = user_data.action;
+					document.getElementsByName("creation_time")[0].value = user_data.creation_time;
+					document.getElementsByName("form_token")[0].value = user_data.login_form_token;
 				}
 				request.send();
 			};
